@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+          border-collapse: collapse;
+        }
+        th, td {
+          text-align: center;
+          padding: 5px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #D6EEEE;
+        }
+        </style>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Download Data</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
+</head>
+<body style="background-color:powderblue; text-align:center;">
+    <br>
+    <h2>{{test_select}} results of  {{class_number}}th class : </h2>
+    <table align="center" width="50%" border="2" cellspacing="2">
+        <tr>
+            <th style="align-items: flex-end;"> STUDENT NAME </th>
+            <th> STUDENT ID </th>
+            <th>CLASS</th>
+            <th> SCORE</th>
+            <th> ANSWERED</th>
+            <th> CORRECT</th>
+            <th> WRONG</th>
+            <th> SKIPPED</th>
+            <th> TIME TAKEN</th>
+        </tr>
+        {% for roll in stu_details[0:] %}
+            <tr, style="align-items: flex-end;">
+                <td>{{roll[0]}}</td>
+                <td>{{roll[1]}}</td>
+                <td>{{roll[2]}}</td>
+                <td>{{roll[3]}}</td>
+                <td>{{roll[4]}}</td>
+                <td>{{roll[5]}}</td>
+                <td>{{roll[6]}}</td>
+                <td>{{roll[7]}}</td>
+                <td>{{roll[8]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p>
+        <a href="{{ url_for('.download_file') }}"><button style="padding: 0.5rem;  background-color:rgb(13, 22, 16);color:white;width:150px;" type ="submit" >Download</button></a>
+    </p>
+</body>
+</html>

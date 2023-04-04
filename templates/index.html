@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body style="background-color:powderblue; text-align:center;">
+    <br><br>
+    <h2><strong>Please upload file</strong></h2>
+<form method="POST" enctype=multipart/form-data>
+    <input type=file name=file>
+    <input style="padding: 0.5rem;  background-color:rgb(13, 22, 16);color:white;width:150px;" type ="submit" value=Upload >
+</form>
+<br><br>
+  <h2>Select the Class and Test Number</h2>
+    <form class="form-inline" method="POST", action={{ url_for('table') }} >
+        <div class="form-group">
+        <div class="input-group">
+
+        <select name="classes"  method="GET" action="/">
+                <option value="{{classlists[0]}}" selected>{{classlists[0]}}</option>
+                {% for classes in classlists[1:] %}
+                <option value="{{classes}}">{{classes}}</option>
+                {% endfor %}
+            </select>
+             
+        <select name="test_number" method="GET" action="/">
+            <option value="{{test_numb[0]}}" selected>{{test_numb[0]}}</option>
+            {% for test_number in test_numb[1:] %}
+            <option value="{{test_number}}">{{test_number}}</option>
+            {% endfor %}
+        </select>
+    
+    <br>
+    <br>
+    </div>
+        <button style="padding: 0.5rem;  background-color:rgb(13, 22, 16);color:white;width:150px;" type ="submit" >GET DATA</button>
+    </div>
+    </form>
+
+</body>
+</html>
